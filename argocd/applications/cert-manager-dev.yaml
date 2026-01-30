@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/Du-devBR/pipelinebr-gitops.git
-    path: environment/dev/infra/cert-manager/base
+    path: enviroment/dev/infra/cert-manager/base
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
@@ -30,7 +30,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/Du-devBR/pipelinebr-gitops.git
-    path: environment/dev/infra/cert-manager/config
+    path: enviroment/dev/infra/cert-manager/config
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
