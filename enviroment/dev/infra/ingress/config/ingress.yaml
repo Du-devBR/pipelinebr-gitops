@@ -4,22 +4,21 @@ metadata:
   name: argocd
   namespace: argocd
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-dev
-    traefik.ingress.kubernetes.io/router.middlewares: kube-system-security-headers@kubernetescrd
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   ingressClassName: traefik
   tls:
-    - hosts:
-        - argocd.dev.pipelinebr.com
-      secretName: argocd-tls
+  - hosts:
+    - argocd.dev.pipelinebr
+    secretName: argocd-tls
   rules:
-    - host: argocd.dev.pipelinebr.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: argocd-server
-                port:
-                  number: 443
+  - host: argocd.dev.pipelinebr
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 80

@@ -1,14 +1,6 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt-dev
+  name: selfsigned-lab
 spec:
-  acme:
-    email: dev@pipelinebr.com
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
-    privateKeySecretRef:
-      name: letsencrypt-dev
-    solvers:
-    - http01:
-        ingress:
-          class: traefik
+  selfSigned: {}
