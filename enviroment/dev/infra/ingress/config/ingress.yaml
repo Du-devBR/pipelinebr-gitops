@@ -21,7 +21,4 @@ spec:
           service:
             name: argocd-server
             port:
-              number: 443
-annotations:
-  traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
-  traefik.ingress.kubernetes.io/router.middlewares: kube-system-https-redirect@kubernetescrd
+              number: 80
