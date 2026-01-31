@@ -5,20 +5,21 @@ metadata:
   namespace: argocd
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/service.serversscheme: https
 spec:
   ingressClassName: traefik
   tls:
-  - hosts:
-    - argocd.dev.pipelinebr
-    secretName: argocd-tls
+    - hosts:
+        - argocd.dev.pipelinebr
+      secretName: argocd-tls
   rules:
-  - host: argocd.dev.pipelinebr
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: argocd-server
-            port:
-              number: 80
+    - host: argocd.dev.pipelinebr
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  number: 80
